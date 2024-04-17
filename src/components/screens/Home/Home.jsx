@@ -1,5 +1,5 @@
 import React from "react";
-import TodoItem from "./TodoItem";
+import TodoItem from "./item/TodoItem";
 
 const todos = [
     {
@@ -22,7 +22,7 @@ const todos = [
 
 const Home = () => {
     return (
-        <div className="bg-gray-900 h-screen text-white">
+        <div className=" text-white w-4/5 mx-auto">
             {todos.map(todo => ( 
                 <TodoItem key={todo.id} todo={todo} />
             ))}
