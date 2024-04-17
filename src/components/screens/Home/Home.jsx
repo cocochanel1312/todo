@@ -22,7 +22,8 @@ const todos = [
 
 const Home = () => {
     return (
-        <div className=" text-white w-4/5 mx-auto">
+        <div className=" text-black w-4/5 mx-auto">
+            <h1 className="text-2xl font-bold text-center mb-10">My To-Do List </h1>
             {todos.map(todo => ( 
                 <TodoItem key={todo.id} todo={todo} />
             ))}
