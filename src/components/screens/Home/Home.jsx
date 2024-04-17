@@ -1,16 +1,20 @@
 import React from "react";
+import TodoItem from "./TodoItem";
 
 const todos = [
     {
-        title: 'Read React ',
+        id: 1,
+        title: 'Make a to-do list',
         isCompleted: false,
     },
     {
-        title: 'Finish the essay collaboration',
+        id: 2,
+        title: 'take a JS course',
         isCompleted: false,
     },
     {
-        title: 'Finish the essay collaboration',
+        id: 3,
+        title: 'take a React course',
         isCompleted: false,
     }
 ]
@@ -19,9 +23,9 @@ const todos = [
 const Home = () => {
     return (
         <div className="bg-gray-900 h-screen text-white">
-
-
-
+            {todos.map(todo => ( 
+                <TodoItem key={todo.id} todo={todo} />
+            ))}
         </div>
     )
 }
