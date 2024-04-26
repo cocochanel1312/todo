@@ -17,6 +17,11 @@ const data = [
         id: 3,
         title: 'take a React course',
         isCompleted: false,
+    },
+    {
+        id: 4,
+        title: 'approve pull request from Fpsska :)',
+        isCompleted: true,
     }
 ]
 
@@ -24,14 +29,19 @@ const Home = () => {
     const [todos, setTodos] = useState(data)
 
     const changeTodo = (id) => {
-        const copy = [...todos]
-        const current = copy.find(t => t.id === id)
-        current.isCompleted = !current.isCompleted
-        setTodos(copy)
+        setTodos((data) => {
+            return data.map((item) => {
+                if (item.id !== id) return item;
+                return {...item, isCompleted: !item.isCompleted}
+            })
+        })
     }
 
     const removeTodo = (id) => {
-        setTodos([...todos].filter(t => t.id !== id))
+        setTodos((data) => {
+            return data.filter((item) => item.id !== id) 
+            // .filter() не мутирующий метод, он создаёт новый массив, и можно не делать копию [...data]
+        })
     }
 
     return (
